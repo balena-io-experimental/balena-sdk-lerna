@@ -1,7 +1,8 @@
-settings = require('../../build/settings')
+const settings = require('../../build/settings')
 
-try
+try {
 	console.log(JSON.stringify(settings.getAll()))
-catch error
+} catch (error) {
 	console.error(error.message, error.stack)
 	process.exit(1)
+}

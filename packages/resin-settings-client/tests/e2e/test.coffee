@@ -14,13 +14,13 @@ handleExecResult = (stdout, stderr) ->
 	return stdout.replace(/\n$/, '')
 
 getSetting = (setting) ->
-	script = path.join(__dirname, 'get.coffee')
-	execAsync("coffee #{script} #{setting}", encoding: 'utf8')
+	script = path.join(__dirname, 'get.js')
+	execAsync("node #{script} #{setting}", encoding: 'utf8')
 	.spread(handleExecResult)
 
 getAll = ->
-	script = path.join(__dirname, 'get-all.coffee')
-	execAsync("coffee #{script}", encoding: 'utf8')
+	script = path.join(__dirname, 'get-all.js')
+	execAsync("node #{script}", encoding: 'utf8')
 	.spread(handleExecResult)
 	.then(JSON.parse)
 

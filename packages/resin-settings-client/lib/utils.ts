@@ -13,8 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-"use strict";
-var _ = require("lodash");
+
+import * as _ from 'lodash'
+import * as url from 'url'
+
 /**
 * @summary Merge objects into one
 * @function
@@ -34,6 +36,7 @@ var _ = require("lodash");
 * console.log(utils.mergeObjects(first, second, third))
 * > { foo: 'qux' }
 */
+
 /*
 Notice that this function equals `_.merge` and thus the latter
 could be used directly, making this function declaration unnecessary.
@@ -41,7 +44,9 @@ However, we decided to create a new function for this in order to
 test specific behaviour that affects this module, like function
 merging.
 */
-exports.mergeObjects = _.merge;
+
+export const mergeObjects = _.merge
+
 /**
 * @summary Evaluate a setting property
 * @function
@@ -70,16 +75,19 @@ exports.mergeObjects = _.merge;
 * }), 'message')
 * > Hola World
 */
-exports.evaluateSetting = function (settings, property) {
-    if (settings === void 0) { settings = {}; }
-    var value = _.get(settings, property);
-    if (value == null) {
-        throw new Error("Setting not found: " + property);
-    }
-    if (_.isFunction(value)) {
-        // This enables nifty things like dynamic
-        // settings that rely on other settings
-        return value.call(settings);
-    }
-    return value;
-};
+
+export const evaluateSetting = (settings = {}, property) => {
+	const value = _.get(settings, property)
+
+	if (value == null) {
+		throw new Error(`Setting not found: ${property}`)
+	}
+
+	if (_.isFunction(value)) {
+		// This enables nifty things like dynamic
+		// settings that rely on other settings
+		return value.call(settings)
+	}
+
+	return value
+}

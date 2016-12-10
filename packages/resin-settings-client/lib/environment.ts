@@ -13,8 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-"use strict";
-var _ = require("lodash");
+
+import * as _ from 'lodash'
+
 /**
 * @summary Get setting name from environment variable
 * @function
@@ -29,12 +30,14 @@ var _ = require("lodash");
 * console.log(environment.getSettingName('RESINRC_HELLO_WORLD'))
 * > helloWorld
 */
-exports.getSettingName = function (variable) {
-    if (_.isEmpty(variable) || variable.trim() === '') {
-        throw new Error('Missing variable name');
-    }
-    return _.camelCase(variable.replace(/^RESINRC_/i, ''));
-};
+
+export const getSettingName = (variable: string) => {
+	if (_.isEmpty(variable) || variable.trim() === '') {
+		throw new Error('Missing variable name')
+	}
+	return _.camelCase(variable.replace(/^RESINRC_/i, ''))
+}
+
 /**
 * @summary Determine if a variable is a configuration variable
 * @function
@@ -51,9 +54,10 @@ exports.getSettingName = function (variable) {
 * console.log(environment.isSettingVariable('EDITOR'))
 * > false
 */
-exports.isSettingVariable = function (variable) {
-    return /^RESINRC_(.)+/i.test(variable);
-};
+
+export const isSettingVariable = (variable: string) =>
+	/^RESINRC_(.)+/i.test(variable)
+
 /**
 * @summary Parse environment variables
 * @function
@@ -71,9 +75,8 @@ exports.isSettingVariable = function (variable) {
 * > 	resinUrl: 'https://resin.io'
 * > }
 */
-exports.parse = function (environment) {
-    return _.chain(environment)
-        .pickBy(function (v, k) { return k != null && exports.isSettingVariable(k); })
-        .mapKeys(function (v, k) { return exports.getSettingName(k); })
-        .value();
-};
+export const parse = (environment) =>
+	_.chain(environment)
+		.pickBy((v, k) => k != null && isSettingVariable(k))
+		.mapKeys((v, k) => getSettingName(k))
+		.value()

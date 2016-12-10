@@ -2,7 +2,7 @@ m = require('mochainon')
 path = require('path')
 url = require('url')
 utils = require('../build/utils')
-defaults = require('../build/defaults')
+defaults = require('../build/defaults').default
 
 describe 'Defaults:', ->
 

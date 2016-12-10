@@ -13,7 +13,7 @@ OPTIONS =
 	files:
 		coffee: [ 'lib/**/*.coffee', 'tests/**/*.spec.coffee', 'gulpfile.coffee' ]
 		app: 'lib/**/*.coffee'
-		tests: 'tests/**/*.spec.coffee'
+		tests: [ 'tests/**/*.spec.coffee', 'tests/**/*.spec.js' ]
 
 gulp.task 'typescript', ->
 	gulp.src('lib/**/*.ts')

@@ -1,4 +1,4 @@
-settings = require('../../lib/settings')
+settings = require('../../build/settings')
 
 try
 	console.log(JSON.stringify(settings.getAll()))

@@ -1,5 +1,5 @@
 m = require('mochainon')
-utils = require('../lib/utils')
+utils = require('../build/utils')
 
 describe 'Utils:', ->
 

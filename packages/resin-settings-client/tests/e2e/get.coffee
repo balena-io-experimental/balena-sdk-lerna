@@ -1,4 +1,4 @@
-settings = require('../../lib/settings')
+settings = require('../../build/settings')
 name = process.argv[2]
 
 try

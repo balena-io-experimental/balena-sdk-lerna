@@ -66,7 +66,7 @@ defaults = require('./defaults')
 environment = require('./environment')
 yaml = require('./yaml')
 utils = require('./utils')
-config = require('./config')
+config = require('./config').default
 
 readConfigFile = (file) ->
 	try

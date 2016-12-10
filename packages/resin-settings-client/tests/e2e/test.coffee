@@ -5,8 +5,8 @@ fs = require('fs')
 Promise = require('bluebird')
 execAsync = Promise.promisify(require('child_process').exec, { multiArgs: true })
 wary = require('wary')
-config = require('../../lib/config')
-environment = require('../../lib/environment')
+config = require('../../build/config').default
+environment = require('../../build/environment')
 
 handleExecResult = (stdout, stderr) ->
 	if not _.isEmpty(stderr)

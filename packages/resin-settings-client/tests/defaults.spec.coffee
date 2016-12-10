@@ -1,8 +1,8 @@
 m = require('mochainon')
 path = require('path')
 url = require('url')
-utils = require('../lib/utils')
-defaults = require('../lib/defaults')
+utils = require('../build/utils')
+defaults = require('../build/defaults')
 
 describe 'Defaults:', ->
 

@@ -1,5 +1,5 @@
 m = require('mochainon')
-environment = require('../lib/environment')
+environment = require('../build/environment')
 
 describe 'Environment:', ->
 

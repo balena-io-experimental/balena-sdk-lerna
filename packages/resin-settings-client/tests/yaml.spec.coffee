@@ -1,5 +1,5 @@
 m = require('mochainon')
-yaml = require('../lib/yaml')
+yaml = require('../build/yaml')
 
 describe 'YAML:', ->
 

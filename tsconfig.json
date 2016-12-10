@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+		"strictNullChecks": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+ 		"target": "es5"
+    },
+	"include": [
+		"lib/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
+}

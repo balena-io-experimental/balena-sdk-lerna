@@ -21,13 +21,14 @@
     "test-node": "../../node_modules/.bin/gulp test",
     "test-e2e": "../../node_modules/.bin/coffee tests/e2e/test.coffee",
     "test": "npm run test-node && npm run test-e2e",
-    "build": "../../node_modules/.bin/gulp build",
+    "build": "../../node_modules/.bin/gulp build && npm test",
     "prepublish": "npm test && npm run build",
     "readme": "../../node_modules/.bin/jsdoc2md --template doc/README.hbs build/settings.js > README.md"
   },
   "author": "Juan Cruz Viotti <juan@resin.io>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/js-yaml": "^3.5.28",
     "bluebird": "^3.0.0",
     "wary": "^1.1.0"
   },

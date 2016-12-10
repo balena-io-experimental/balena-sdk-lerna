@@ -1,6 +1,6 @@
 m = require('mochainon')
 path = require('path')
-config = require('../lib/config')
+config = require('../build/config').default
 
 describe 'Config:', ->
 

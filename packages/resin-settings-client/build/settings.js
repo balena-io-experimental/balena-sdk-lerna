@@ -74,7 +74,7 @@ yaml = require('./yaml');
 
 utils = require('./utils');
 
-config = require('./config');
+config = require('./config')["default"];
 
 readConfigFile = function(file) {
   var error;
